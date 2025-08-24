@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BumblebeeParis - Location voitures Transformers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Roboto', sans-serif; background:#111; color:#fff; }
+        a { text-decoration:none; color:inherit; }
+        
+        /* Header */
+        header {
+            background:#ffcc00; padding:20px 40px; display:flex; justify-content:space-between; align-items:center;
+        }
+        header h1 { color:#111; font-size:1.8em; }
+        nav a { margin-left:20px; font-weight:700; transition:color 0.3s; }
+        nav a:hover { color:#222; }
+
+        /* Hero */
+        .hero {
+            background:url('https://images.unsplash.com/photo-1584467735815-8aa72bda81c4?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            height:80vh; display:flex; justify-content:center; align-items:center; text-align:center; position:relative;
+        }
+        .hero h2 {
+            font-size:2.5em; background:rgba(0,0,0,0.6); padding:20px; border-radius:10px;
+            animation:fadeIn 2s ease forwards;
+        }
+        @keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+        /* Slider voitures */
+        .slider { position:relative; width:90%; max-width:1000px; margin:50px auto; overflow:hidden; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+        .slides { display:flex; transition:transform 0.5s ease-in-out; }
+        .slide { min-width:100%; position:relative; }
+        .slide img { width:100%; height:500px; object-fit:cover; }
+        .slide h3 {
+            position:absolute; bottom:30px; left:20px; background:rgba(255,204,0,0.9); color:#111; padding:15px; border-radius:10px;
+            font-size:1.8em;
+            animation:slideIn 1s ease forwards;
+        }
+        @keyframes slideIn { from {opacity:0; transform:translateX(-50px);} to {opacity:1; transform:translateX(0);} }
+
+        .slider-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,204,0,0.7); border:none; padding:15px; cursor:pointer; font-size:1.5em; border-radius:50%; transition:background 0.3s; }
+        .slider-btn:hover { background:rgba(255,204,0,1); }
+        .prev { left:20px; } .next { right:20px; }
+
+        /* Section événements */
+        .events { padding:50px 20px; text-align:center; background:#222; }
+        .events h2 { font-size:2em; margin-bottom:30px; color:#ffcc00; }
+        .events-list { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+        .event-item { background:#333; padding:20px; border-radius:10px; width:200px; transition:all 0.3s; cursor:pointer; }
+        .event-item:hover { background:#444; transform:scale(1.05); }
+
+        /* Contact */
+        .contact { padding:50px 20px; text-align:center; }
+        .contact h2 { font-size:2em; margin-bottom:30px; color:#ffcc00; }
+        .contact form { display:flex; flex-direction:column; max-width:400px; margin:auto; }
+        .contact input, .contact textarea { padding:10px; margin-bottom:20px; border-radius:5px; border:1px solid #ccc; font-size:1em; }
+        .contact button { padding:12px; background:#ffcc00; border:none; font-weight:bold; cursor:pointer; border-radius:5px; transition:background 0.3s; }
+        .contact button:hover { background:#e6b800; }
+
+        /* Footer */
+        footer { background:#222; color:#fff; text-align:center; padding:20px; }
+
+        @media(max-width:768px) { .events-list { flex-direction:column; align-items:center; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BumblebeeParis</h1>
+    <nav>
+        <a href="#slider">Voitures</a>
+        <a href="#events">Événements</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Louez nos voitures Transformers pour tous vos événements</h2>
+</section>
+
+<section id="slider" class="slider">
+    <div class="slides">
+        <div class="slide">
+            <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/chevrolet-camaro-1867012_1280.jpg" alt="Camaro 2010">
+            <h3>Camaro 2010</h3>
+        </div>
+        <div class="slide">
+            <img src="https://cdn.pixabay.com/photo/2013/07/12/16/15/chevrolet-151984_1280.png" alt="Camaro 1977">
+            <h3>Camaro 1977</h3>
+        </div>
+        <div class="slide">
+            <img src="https://cdn.pixabay.com/photo/2017/05/17/13/51/beetle-2328367_1280.jpg" alt="Beetle Bumblebee">
+            <h3>Beetle Bumblebee</h3>
+        </div>
+    </div>
+    <button class="slider-btn prev">&#10094;</button>
+    <button class="slider-btn next">&#10095;</button>
+</section>
+
+<section id="events" class="events">
+    <h2>Événements</h2>
+    <div class="events-list">
+        <div class="event-item">Salon Manga</div>
+        <div class="event-item">Festival Geek</div>
+        <div class="event-item">Mariage</div>
+        <div class="event-item">Exposition</div>
+        <div class="event-item">Tournage / Clip Musicaux</div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contactez-nous</h2>
+    <form>
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre email" required>
+        <textarea placeholder="Votre message" rows="5" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 BumblebeeParis. Tous droits réservés.
+</footer>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const slide = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide(i) {
+        if(i >= slide.length) index = 0;
+        else if(i < 0) index = slide.length - 1;
+        else index = i;
+        slides.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    document.querySelector('.next').addEventListener('click', () => showSlide(index + 1));
+    document.querySelector('.prev').addEventListener('click', () => showSlide(index - 1));
+
+    setInterval(() => { showSlide(index + 1); }, 5000); // défilement auto toutes les 5s
+</script>
+
+</body>
+</html>
